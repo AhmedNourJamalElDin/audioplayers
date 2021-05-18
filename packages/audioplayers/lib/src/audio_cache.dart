@@ -155,6 +155,7 @@ class AudioCache {
     bool stayAwake = false,
     bool recordingActive = false,
     bool? duckAudio,
+    bool? isLocal,
   }) async {
     final uri = await load(fileName);
     final player = _player(mode);
@@ -168,6 +169,7 @@ class AudioCache {
       stayAwake: stayAwake,
       recordingActive: recordingActive,
       duckAudio: duckAudio ?? this.duckAudio,
+      isLocal: isLocal,
     );
     return player;
   }
