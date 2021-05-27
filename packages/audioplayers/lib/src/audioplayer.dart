@@ -82,11 +82,11 @@ class AudioPlayer {
   }
 
   /// Stream of changes on player state.
-  Stream<PlayerState> get onPlayerStateChanged => _playerStateController.stream.distinct();
+  Stream<PlayerState> get onPlayerStateChanged => _playerStateController.stream;
 
   /// Stream of changes on player state coming from notification area in iOS.
   Stream<PlayerState> get onNotificationPlayerStateChanged =>
-      _notificationPlayerStateController.stream.distinct();
+      _notificationPlayerStateController.stream;
 
   /// Stream of changes on audio position.
   ///
@@ -94,7 +94,7 @@ class AudioPlayer {
   /// position of the playback if the status is [PlayerState.PLAYING].
   ///
   /// You can use it on a progress bar, for instance.
-  Stream<Duration> get onAudioPositionChanged => _positionController.stream.distinct();
+  Stream<Duration> get onAudioPositionChanged => _positionController.stream;
 
   /// Stream of changes on audio duration.
   ///
@@ -109,17 +109,17 @@ class AudioPlayer {
   /// sent when an audio is paused or stopped.
   ///
   /// [ReleaseMode.LOOP] also sends events to this stream.
-  Stream<void> get onPlayerCompletion => _completionController.stream.distinct();
+  Stream<void> get onPlayerCompletion => _completionController.stream;
 
   /// Stream of seek completions.
   ///
   /// An event is going to be sent as soon as the audio seek is finished.
-  Stream<void> get onSeekComplete => _seekCompleteController.stream.distinct();
+  Stream<void> get onSeekComplete => _seekCompleteController.stream;
 
   /// Stream of player errors.
   ///
   /// Events are sent when an unexpected error is thrown in the native code.
-  Stream<String> get onPlayerError => _errorController.stream.distinct();
+  Stream<String> get onPlayerError => _errorController.stream;
 
   /// An unique ID generated for this instance of [AudioPlayer].
   ///
