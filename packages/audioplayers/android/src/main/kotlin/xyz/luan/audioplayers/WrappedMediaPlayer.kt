@@ -60,7 +60,7 @@ class WrappedMediaPlayer internal constructor(
     private fun preparePlayer(player: MediaPlayer) {
         player.setVolume(volume.toFloat(), volume.toFloat())
         player.isLooping = releaseMode === ReleaseMode.LOOP
-        player.prepareAsync()
+        player.prepare()
     }
 
     private fun getOrCreatePlayer(): MediaPlayer {
@@ -218,7 +218,7 @@ class WrappedMediaPlayer internal constructor(
                     } else {
                         it.setDataSource(url)
                     }
-                    it.prepareAsync()
+                    it.prepare()
                 }
             } else if (prepared) {
                 currentPlayer.start()
